@@ -10,7 +10,7 @@ bot = telebot.TeleBot(config.TOKEN)
 
 # Состояния для управления диалогом
 states = {}
-HISTORY_FILE = r"C:\Programming\curses.txt"
+HISTORY_FILE = r"C:\Proggraming\curses.txt"
 os.makedirs(os.path.dirname(HISTORY_FILE), exist_ok=True)
 
 def is_today_saved():
@@ -31,11 +31,11 @@ def save_daily_rates(rates):
     rates_str = f"\n\n=== {today} ===\n"
     rates_str += "Коммерческие курсы:\n"
     for currency, rate in rates["commercial"].items():
-        rates_str += f"{currency}: {rate['sell']:.4f} / {rate['buy']:.4f} ₽\n"
+        rates_str += f"{currency}: {rate['sell']:.4f} / {rate['buy']:.4f} \n"
     
     rates_str += "\nКурсы для интернет-банка:\n"
     for currency, rate in rates["internetbank"].items():
-        rates_str += f"{currency}: {rate['sell']:.4f} / {rate['buy']:.4f} ₽\n"
+        rates_str += f"{currency}: {rate['sell']:.4f} / {rate['buy']:.4f} \n"
     
     with open(HISTORY_FILE, 'a', encoding='utf-8') as f:
         f.write(rates_str)
